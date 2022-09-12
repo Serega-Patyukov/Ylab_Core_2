@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e05e509f-e8b1-4164-8ae0-d209ad0fede0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/homework_2/ComplexExamples.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/homework_2/ComplexExamples.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +37,24 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ComplexExamples">
+    <configuration name="ComplexExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="homework_2.ComplexExamples" />
+      <module name="Ylab_Core_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="homework_2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestComplexExamples.testFuzzySearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ylab_Core_2" />
       <extension name="coverage">
@@ -61,6 +73,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ComplexExamples" />
         <item itemvalue="JUnit.TestComplexExamples.testFuzzySearch" />
       </list>
     </recent_temporary>
@@ -74,6 +87,9 @@
       <option name="presentableId" value="Default" />
       <updated>1662748964312</updated>
       <workItem from="1662748966553" duration="763000" />
+      <workItem from="1662749795345" duration="943000" />
+      <workItem from="1662827593975" duration="186000" />
+      <workItem from="1662982570521" duration="7493000" />
     </task>
     <servers />
   </component>

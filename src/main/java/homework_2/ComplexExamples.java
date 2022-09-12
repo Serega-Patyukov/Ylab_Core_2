@@ -121,41 +121,10 @@ public class ComplexExamples {
                 Value:1
          */
 
-        Map<String, List<Person>> resultMap = Arrays.stream(Optional.of(RAW_DATA).orElseThrow(RuntimeException::new))
-                .filter(Objects::nonNull)
-                .distinct()
-                .sorted(Comparator.comparingInt(Person::getId))
-                .collect(Collectors.groupingBy(Person::getName));   // Эта строка заменила километры закомментированного кода.
-//                .map(person -> {
-//                    List<Person> personList = new ArrayList<>();
-//                    personList.add(person);
-//                    Map<String, List<Person>> mapTemp = new HashMap<>();
-//                    mapTemp.put(person.getName(), personList);
-//                    return mapTemp;
-//                })
-//                .reduce((mapTemp1, mapTemp2) -> {
-//                    String keyMapTemp2 = mapTemp2.keySet().stream().findAny().orElseThrow(NullPointerException::new);
-//                    if (mapTemp1.containsKey(keyMapTemp2)) {
-//                        List<Person> personList = mapTemp1.get(keyMapTemp2);
-//                        Person person = mapTemp2.get(keyMapTemp2).get(0);
-//                        personList.add(person);
-//                    } else {
-//                        mapTemp1.put(keyMapTemp2, mapTemp2.get(keyMapTemp2));
-//                    }
-//                    return mapTemp1;
-//                })
-//                .orElseThrow(NullPointerException::new);
-
-        List<Map.Entry<String, List<Person>>> keyList = new ArrayList<>(resultMap.entrySet());
-        Collections.sort(keyList, Comparator.comparing(Map.Entry::getKey));
-
-        for (int i = 0; i < keyList.size(); i++) {
-            Map.Entry<String, List<Person>> entry = keyList.get(i);
-            System.out.println(entry.getKey());
-            for (int j = 0; j < entry.getValue().size(); j++) {
-                Person person = entry.getValue().get(j);
-                System.out.println(j + 1 + " - " + person.getName() + " (" + person.getId() + ")");
-            }
+        try {
+            print(RAW_DATA);
+        } catch (NullPointerException npe) {
+            System.out.println(npe);
         }
 
         /*
@@ -170,12 +139,13 @@ public class ComplexExamples {
         int array[] = {3, 4, 2, 7};
         int n = 10;
 
+        Arrays.sort(array);
+
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
-                if (array[i] + array[j] == n && i != j) {
-                    System.out.println("[" + array[i] + ", " + array[j] + "]");
-                    i = j = array.length;
-                }
+            int result = Arrays.binarySearch(array, n - array[i]);
+            if (result >= 0 && result != i) {
+                System.out.println("[" + array[i] + ", " + array[result] + "]");
+                break;
             }
         }
 
@@ -201,6 +171,16 @@ public class ComplexExamples {
         System.out.println(fuzzySearch("cartwheel", "cartwheel")); // true
         System.out.println(fuzzySearch("cwheeel", "cartwheel")); // false
         System.out.println(fuzzySearch("lw", "cartwheel")); // false
+    }
+
+    public static void print(Person[] RAW_DATA) {
+        Arrays.stream(RAW_DATA)
+                .filter(Objects::nonNull)
+                .filter(person -> person.getName() != null)
+                .distinct()
+                .sorted(Comparator.comparingInt(Person::getId))
+                .collect(Collectors.groupingBy(Person::getName))
+                .forEach((s, people) -> System.out.println("Key: " + s + "\n" + "Value: " + people.size()));
     }
 
     public static boolean fuzzySearch(@NonNull String substring, @NonNull String str) {
